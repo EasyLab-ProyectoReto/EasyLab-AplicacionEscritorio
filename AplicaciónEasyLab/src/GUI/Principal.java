@@ -5,20 +5,25 @@
  */
 package GUI;
 
+import Datos.DATFuncionalidades;
+import Entidades.PDF;
+import java.awt.Desktop;
 import java.awt.Dimension;
+import java.io.File;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author LENOVO
  */
 public class Principal extends javax.swing.JFrame {
-
+    boolean clave = true;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
-         this.setSize(new Dimension(1300, 800));
+        this.setSize(new Dimension(1300, 800));
         this.setMinimumSize(new Dimension(200, 200));
         setLocationRelativeTo(null);
     }
@@ -34,8 +39,8 @@ public class Principal extends javax.swing.JFrame {
 
         jdpescritorio = new javax.swing.JDesktopPane();
         jLabel4 = new javax.swing.JLabel();
-        btnProductos = new javax.swing.JButton();
-        btnVentas = new javax.swing.JButton();
+        btnFuncionalidades = new javax.swing.JButton();
+        btnPracticas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,32 +53,27 @@ public class Principal extends javax.swing.JFrame {
         jdpescritorio.add(jLabel4);
         jLabel4.setBounds(600, 40, 170, 37);
 
-        btnProductos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/menu_editconfig_men_9554.png"))); // NOI18N
-        btnProductos.setText("FUNCIONALIDADES");
-        btnProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnFuncionalidades.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnFuncionalidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/menu_editconfig_men_9554.png"))); // NOI18N
+        btnFuncionalidades.setText("FUNCIONALIDADES");
+        btnFuncionalidades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnProductosMouseClicked(evt);
+                btnFuncionalidadesMouseClicked(evt);
             }
         });
-        jdpescritorio.add(btnProductos);
-        btnProductos.setBounds(180, 140, 510, 350);
+        jdpescritorio.add(btnFuncionalidades);
+        btnFuncionalidades.setBounds(180, 140, 510, 350);
 
-        btnVentas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/systempackages_config_configuration_9436.png"))); // NOI18N
-        btnVentas.setText("PRÁCTICAS");
-        btnVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPracticas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnPracticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/systempackages_config_configuration_9436.png"))); // NOI18N
+        btnPracticas.setText("PRÁCTICAS");
+        btnPracticas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVentasMouseClicked(evt);
+                btnPracticasMouseClicked(evt);
             }
         });
-        btnVentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVentasActionPerformed(evt);
-            }
-        });
-        jdpescritorio.add(btnVentas);
-        btnVentas.setBounds(710, 140, 510, 350);
+        jdpescritorio.add(btnPracticas);
+        btnPracticas.setBounds(710, 140, 510, 350);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,19 +91,32 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductosMouseClicked
+    private void btnFuncionalidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncionalidadesMouseClicked
         // TODO add your handling code here:
+        try {
+            PDF valor = new PDF();       
+        DATFuncionalidades pd = new DATFuncionalidades();
+        valor = pd.Presentar_PDF();
+        pd.ejecutar_archivoPDF(valor);
+        //System.err.println("valor: "+valor.toString());
+        Desktop.getDesktop().open(new File("Funcionalidades.pdf"));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Problemas al Encontrar el Archivo");
+        }
 
-    }//GEN-LAST:event_btnProductosMouseClicked
+    }//GEN-LAST:event_btnFuncionalidadesMouseClicked
 
-    private void btnVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVentasMouseClicked
+    private void btnPracticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPracticasMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnVentasMouseClicked
+        Pantalla_Practicas vista = new Pantalla_Practicas();
+        if (clave == false) {
+            vista.setVisible(clave);
 
-    private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnVentasActionPerformed
+        }else{
+            vista.setVisible(clave);
+            dispose();
+        }
+    }//GEN-LAST:event_btnPracticasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -141,8 +154,8 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnProductos;
-    private javax.swing.JButton btnVentas;
+    private javax.swing.JButton btnFuncionalidades;
+    private javax.swing.JButton btnPracticas;
     private javax.swing.JLabel jLabel4;
     public static javax.swing.JDesktopPane jdpescritorio;
     // End of variables declaration//GEN-END:variables
