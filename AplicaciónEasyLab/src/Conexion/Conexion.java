@@ -23,7 +23,7 @@ public class Conexion {
         
         try {
             Class.forName(driver);
-            con = DriverManager.getConnection("jdbc:mysql://uniemck5kxud8yxk:zRn4N0sgWcBekHi5E6w1@bsgko0qic0al1fdgynil-mysql.services.clever-cloud.com:3306/bsgko0qic0al1fdgynil", "uniemck5kxud8yxk", "zRn4N0sgWcBekHi5E6w1");
+            con = DriverManager.getConnection("jdbc:mysql://mysql-juanyasa.alwaysdata.net/juanyasa_proyectoreto", "juanyasa", "dragonperla4");
            if (con !=null) {
                //JOptionPane.showMessageDialog(null, "Conexion Exitosa");
             }
