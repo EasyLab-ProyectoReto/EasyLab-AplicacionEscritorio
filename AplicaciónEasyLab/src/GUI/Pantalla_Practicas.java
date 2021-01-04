@@ -15,6 +15,7 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -24,11 +25,18 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
     boolean clave = true;
     int id = -1;
     Tabla tpdf = new Tabla();
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form Pantalla_Practicas
      */
     public Pantalla_Practicas() {
+         this.setContentPane(fondo);
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/IMG/help.png")).getImage());
+        this.setSize(new Dimension(800, 550));
+        setLocationRelativeTo(null);
+        this.setResizable(false);
+        setTitle("Prácticas");
         //this.setSize(new Dimension(800, 400));
         //this.setMinimumSize(new Dimension(200, 200));
         setLocationRelativeTo(null);
@@ -56,21 +64,22 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPracticas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
-        setUndecorated(true);
+        setMinimumSize(new java.awt.Dimension(800, 550));
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(174, 204, 206));
-
-        jLabel1.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(9, 29, 105));
-        jLabel1.setText("EASYLAB");
+        jLabel4.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 204));
+        jLabel4.setText("Prácticas de la herramienta");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 556, -1));
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/back.png"))); // NOI18N
@@ -79,6 +88,7 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
                 btnRegresarMouseClicked(evt);
             }
         });
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         tblPracticas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,45 +105,7 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblPracticas);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnRegresar)
-                .addGap(192, 192, 192)
-                .addComponent(jLabel1)
-                .addContainerGap(314, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegresar)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 688, 341));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,9 +187,20 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPracticas;
     // End of variables declaration//GEN-END:variables
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        @Override
+        public void paint (Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/IMG/fondo2.jpg")).getImage();
+            
+            g.drawImage(imagen , 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+            
+        }
+    }
 }

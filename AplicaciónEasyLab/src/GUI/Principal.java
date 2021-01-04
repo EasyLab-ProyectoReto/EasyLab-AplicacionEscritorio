@@ -16,21 +16,29 @@ import java.awt.event.*;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+import javax.swing.JPanel;
 /**
  *
  * @author LENOVO
  */
 public class Principal extends javax.swing.JFrame {
     boolean clave = true;
+    
+    FondoPanel fondo = new FondoPanel();
     /**
      * Creates new form Principal
      */
     public Principal() {
+        this.setContentPane(fondo);
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/IMG/help.png")).getImage());
         this.setSize(new Dimension(1300, 800));
-        this.setMinimumSize(new Dimension(200, 200));
+        //this.setMinimumSize(new Dimension(200, 200));
         setLocationRelativeTo(null);
+        this.setResizable(false);
+        //this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
+        setTitle("EasyLab - Asesoramiento ");
+        //this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE); 
     }
      public void imagenDesktop(){
          
@@ -45,39 +53,42 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jdpescritorio = new javax.swing.JDesktopPane();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         btnFuncionalidades = new javax.swing.JButton();
         btnPracticas = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jdpescritorio.setBackground(new java.awt.Color(174, 204, 206));
+        jLabel4.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 204));
+        jLabel4.setText("Asesoramiento Laboratorio Virtual ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 700, -1));
 
-        jLabel4.setBackground(new java.awt.Color(21, 52, 114));
-        jLabel4.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(9, 29, 105));
-        jLabel4.setText("EASYLAB");
-        jdpescritorio.add(jLabel4);
-        jLabel4.setBounds(560, 40, 170, 37);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dep.jpg"))); // NOI18N
+        jLabel2.setText(" ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 296, 211));
 
         btnFuncionalidades.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnFuncionalidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/menu_editconfig_men_9554.png"))); // NOI18N
         btnFuncionalidades.setText("FUNCIONALIDADES");
         btnFuncionalidades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnFuncionalidadesMouseClicked(evt);
             }
         });
-        jdpescritorio.add(btnFuncionalidades);
-        btnFuncionalidades.setBounds(120, 140, 510, 350);
+        getContentPane().add(btnFuncionalidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 450, 130));
 
-        btnPracticas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnPracticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/systempackages_config_configuration_9436.png"))); // NOI18N
+        btnPracticas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnPracticas.setText("PRÁCTICAS");
         btnPracticas.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnPracticas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,8 +96,26 @@ public class Principal extends javax.swing.JFrame {
                 btnPracticasMouseClicked(evt);
             }
         });
-        jdpescritorio.add(btnPracticas);
-        btnPracticas.setBounds(680, 140, 510, 350);
+        getContentPane().add(btnPracticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, 450, 130));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/programador.jpg"))); // NOI18N
+        jLabel1.setText(" ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 240, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Kozuka Mincho Pro R", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(233, 233, 233));
+        jLabel5.setText("Descripción de todas las funcionalidades");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Kozuka Mincho Pro R", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(233, 233, 233));
+        jLabel6.setText("Manuales de desarrollo");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 620, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Kozuka Mincho Pro R", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(233, 233, 233));
+        jLabel7.setText("que posee la herramienta");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 660, -1, -1));
 
         jMenu1.setText("Opciones");
 
@@ -108,19 +137,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpescritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1386, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jdpescritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,10 +217,28 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionalidades;
     private javax.swing.JButton btnPracticas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem;
-    private javax.swing.JDesktopPane jdpescritorio;
     // End of variables declaration//GEN-END:variables
+    class FondoPanel extends JPanel{
+        private Image imagen;
+        @Override
+        public void paint (Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/IMG/utpl2.jpg")).getImage();
+            
+            g.drawImage(imagen , 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+            
+        }
+    }
+
 }
+
