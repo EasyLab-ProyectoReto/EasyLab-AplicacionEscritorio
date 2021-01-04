@@ -9,7 +9,12 @@ import Datos.DATFuncionalidades;
 import Entidades.PDF;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.*;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +32,9 @@ public class Principal extends javax.swing.JFrame {
         this.setMinimumSize(new Dimension(200, 200));
         setLocationRelativeTo(null);
     }
+     public void imagenDesktop(){
+         
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,8 +49,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnFuncionalidades = new javax.swing.JButton();
         btnPracticas = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jdpescritorio.setBackground(new java.awt.Color(174, 204, 206));
 
@@ -51,7 +63,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(9, 29, 105));
         jLabel4.setText("EASYLAB");
         jdpescritorio.add(jLabel4);
-        jLabel4.setBounds(600, 40, 170, 37);
+        jLabel4.setBounds(560, 40, 170, 37);
 
         btnFuncionalidades.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnFuncionalidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/menu_editconfig_men_9554.png"))); // NOI18N
@@ -62,49 +74,68 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jdpescritorio.add(btnFuncionalidades);
-        btnFuncionalidades.setBounds(180, 140, 510, 350);
+        btnFuncionalidades.setBounds(120, 140, 510, 350);
 
         btnPracticas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnPracticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/systempackages_config_configuration_9436.png"))); // NOI18N
         btnPracticas.setText("PRÁCTICAS");
+        btnPracticas.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnPracticas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnPracticasMouseClicked(evt);
             }
         });
         jdpescritorio.add(btnPracticas);
-        btnPracticas.setBounds(710, 140, 510, 350);
+        btnPracticas.setBounds(680, 140, 510, 350);
+
+        jMenu1.setText("Opciones");
+
+        jMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
+        jMenuItem.setText("Salir");
+        jMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItemMouseClicked(evt);
+            }
+        });
+        jMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jdpescritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 1383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+            .addComponent(jdpescritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1386, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpescritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdpescritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFuncionalidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncionalidadesMouseClicked
+    private void jMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItemMouseClicked
         // TODO add your handling code here:
-        try {
-            PDF valor = new PDF();       
-        DATFuncionalidades pd = new DATFuncionalidades();
-        valor = pd.Presentar_PDF();
-        pd.ejecutar_archivoPDF(valor);
-        //System.err.println("valor: "+valor.toString());
-        Desktop.getDesktop().open(new File("Funcionalidades.pdf"));
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Problemas al Encontrar el Archivo");
-        }
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+    }//GEN-LAST:event_jMenuItemMouseClicked
 
-    }//GEN-LAST:event_btnFuncionalidadesMouseClicked
+    private void jMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActionPerformed
+        // TODO add your handling code here:
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+    }//GEN-LAST:event_jMenuItemActionPerformed
 
     private void btnPracticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPracticasMouseClicked
         // TODO add your handling code here:
@@ -117,6 +148,20 @@ public class Principal extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_btnPracticasMouseClicked
+
+    private void btnFuncionalidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncionalidadesMouseClicked
+        // TODO add your handling code here:
+        try {
+            PDF valor = new PDF();
+            DATFuncionalidades pd = new DATFuncionalidades();
+            valor = pd.Presentar_PDF();
+            pd.ejecutar_archivoPDF(valor);
+            //System.err.println("valor: "+valor.toString());
+            Desktop.getDesktop().open(new File("Funcionalidades.pdf"));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Problemas al Encontrar el Archivo");
+        }
+    }//GEN-LAST:event_btnFuncionalidadesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,6 +202,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnFuncionalidades;
     private javax.swing.JButton btnPracticas;
     private javax.swing.JLabel jLabel4;
-    public static javax.swing.JDesktopPane jdpescritorio;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem;
+    private javax.swing.JDesktopPane jdpescritorio;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,13 +20,12 @@ public class Tabla {
                 return false;
             }
         };
-        dt.addColumn("Id_Practicas");
         dt.addColumn("Nombre_Practicas");
         dt.addColumn("Archivo_PDF");
 
         ImageIcon icono = null;
-        if (get_Image("/IMG/pdf.png") != null) {
-            icono = new ImageIcon(get_Image("/IMG/pdf.png"));
+        if (get_Image("/IMG/32pdf.png") != null) {
+            icono = new ImageIcon(get_Image("/IMG/32pdf.png"));
         }
 
         dao = new DATPracticas();
@@ -35,14 +34,13 @@ public class Tabla {
 
         if (list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
-                Object fila[] = new Object[3];
+                Object fila[] = new Object[2];
                 vo = list.get(i);
-                fila[0] = vo.getCodigopdf();
-                fila[1] = vo.getNombrepdf();
+                fila[0] = vo.getNombrepdf();
                 if (vo.getArchivopdf() != null) {
-                    fila[2] = new JButton(icono);
+                    fila[1] = new JButton(icono);
                 } else {
-                    fila[2] = new JButton("Vacio");
+                    fila[1] = new JButton("Vacio");
                 }
 
                 dt.addRow(fila);
