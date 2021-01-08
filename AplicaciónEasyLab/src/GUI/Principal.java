@@ -7,6 +7,7 @@ package GUI;
 
 import Datos.DATFuncionalidades;
 import Entidades.PDF;
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -35,6 +36,8 @@ public class Principal extends javax.swing.JFrame {
         this.setSize(new Dimension(1300, 800));
         //this.setMinimumSize(new Dimension(200, 200));
         setLocationRelativeTo(null);
+        btnFuncionalidades.setBackground(Color.CYAN);
+        btnPracticas.setBackground(Color.CYAN);
         this.setResizable(false);
         //this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
         setTitle("EasyLab - Asesoramiento ");
@@ -66,18 +69,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 800));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 204));
         jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 204));
         jLabel4.setText("Asesoramiento Laboratorio Virtual ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 700, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dep.jpg"))); // NOI18N
         jLabel2.setText(" ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 296, 211));
 
         btnFuncionalidades.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnFuncionalidades.setText("FUNCIONALIDADES");
@@ -85,8 +84,13 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnFuncionalidadesMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnFuncionalidadesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnFuncionalidadesMouseExited(evt);
+            }
         });
-        getContentPane().add(btnFuncionalidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 450, 130));
 
         btnPracticas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnPracticas.setText("PRÁCTICAS");
@@ -95,27 +99,28 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnPracticasMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPracticasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPracticasMouseExited(evt);
+            }
         });
-        getContentPane().add(btnPracticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, 450, 130));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/programador.jpg"))); // NOI18N
         jLabel1.setText(" ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 240, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Kozuka Mincho Pro R", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(233, 233, 233));
         jLabel5.setText("Descripción de todas las funcionalidades");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Kozuka Mincho Pro R", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(233, 233, 233));
         jLabel6.setText("Manuales de desarrollo");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 620, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Kozuka Mincho Pro R", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(233, 233, 233));
         jLabel7.setText("que posee la herramienta");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 660, -1, -1));
 
         jMenu1.setText("Opciones");
 
@@ -137,6 +142,55 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(284, 284, 284)
+                .addComponent(jLabel1))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(btnFuncionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
+                .addComponent(btnPracticas, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel5)
+                .addGap(256, 256, 256)
+                .addComponent(jLabel6))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabel7))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel4)
+                .addGap(132, 132, 132)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel1)))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFuncionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPracticas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(8, 8, 8)
+                .addComponent(jLabel7))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,11 +227,31 @@ public class Principal extends javax.swing.JFrame {
             valor = pd.Presentar_PDF();
             pd.ejecutar_archivoPDF(valor);
             //System.err.println("valor: "+valor.toString());
-            Desktop.getDesktop().open(new File("Funcionalidades.pdf"));
+            Desktop.getDesktop().open(new File("Recursos\\Funcionalidades.pdf"));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Problemas al Encontrar el Archivo");
         }
     }//GEN-LAST:event_btnFuncionalidadesMouseClicked
+
+    private void btnFuncionalidadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncionalidadesMouseEntered
+        // TODO add your handling code here:
+        btnFuncionalidades.setBackground(Color.GRAY);
+    }//GEN-LAST:event_btnFuncionalidadesMouseEntered
+
+    private void btnFuncionalidadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFuncionalidadesMouseExited
+        // TODO add your handling code here:
+        btnFuncionalidades.setBackground(Color.CYAN);
+    }//GEN-LAST:event_btnFuncionalidadesMouseExited
+
+    private void btnPracticasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPracticasMouseEntered
+        // TODO add your handling code here:
+        btnPracticas.setBackground(Color.GRAY);
+    }//GEN-LAST:event_btnPracticasMouseEntered
+
+    private void btnPracticasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPracticasMouseExited
+        // TODO add your handling code here:
+        btnPracticas.setBackground(Color.CYAN);
+    }//GEN-LAST:event_btnPracticasMouseExited
 
     /**
      * @param args the command line arguments

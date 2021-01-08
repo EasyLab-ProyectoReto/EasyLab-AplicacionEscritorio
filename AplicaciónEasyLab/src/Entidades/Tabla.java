@@ -12,7 +12,7 @@ public class Tabla {
 
     DATPracticas dao = null;
 
-    public void visualizar_Pdf(JTable tabla) {
+    public void visualizar_Pdf(JTable tabla,ArrayList<PDF> lis) {
         tabla.setDefaultRenderer(Object.class, new imgTabla());
         DefaultTableModel dt = new DefaultTableModel() {
             @Override
@@ -21,8 +21,9 @@ public class Tabla {
             }
         };
         dt.addColumn("Nombre_Practicas");
+        dt.addColumn("Descripción");
         dt.addColumn("Archivo_PDF");
-
+        
         ImageIcon icono = null;
         if (get_Image("/IMG/32pdf.png") != null) {
             icono = new ImageIcon(get_Image("/IMG/32pdf.png"));
@@ -30,19 +31,23 @@ public class Tabla {
 
         dao = new DATPracticas();
         PDF vo = new PDF();
-        ArrayList<PDF> list = dao.Listar_PDFs();
+        for (int i = 0; i < dao.Listar_PDFs().size(); i++) {
+            lis.add(dao.Listar_PDFs().get(i));
+        }
+        //lis = dao.Listar_PDFs();
 
-        if (list.size() > 0) {
-            for (int i = 0; i < list.size(); i++) {
-                Object fila[] = new Object[2];
-                vo = list.get(i);
+        if (lis.size() > 0) {
+            for (int i = 0; i < lis.size(); i++) {
+                Object fila[] = new Object[3];
+                vo = lis.get(i);
                 fila[0] = vo.getNombrepdf();
+                fila[1] = vo.getDescripcion();
                 if (vo.getArchivopdf() != null) {
-                    fila[1] = new JButton(icono);
+                    fila[2] = new JButton(icono);
                 } else {
-                    fila[1] = new JButton("Vacio");
+                    fila[2] = new JButton("Vacio");
                 }
-
+                
                 dt.addRow(fila);
             }
             tabla.setModel(dt);

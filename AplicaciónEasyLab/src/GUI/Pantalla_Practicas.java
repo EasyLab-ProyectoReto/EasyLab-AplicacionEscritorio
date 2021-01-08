@@ -5,13 +5,16 @@
  */
 package GUI;
 
+
 import Datos.DATPracticas;
+import Entidades.PDF;
 import Entidades.Tabla;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -26,6 +29,7 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
     int id = -1;
     Tabla tpdf = new Tabla();
     FondoPanel fondo = new FondoPanel();
+    ArrayList<PDF> lista = new ArrayList();
     /**
      * Creates new form Pantalla_Practicas
      */
@@ -42,7 +46,7 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         transparencia();
         try {
-            tpdf.visualizar_Pdf(tblPracticas);
+            tpdf.visualizar_Pdf(tblPracticas,lista);
         } catch (Exception e) {
             System.out.println("Problemas al cargar");
         }
@@ -73,13 +77,11 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
         setMinimumSize(new java.awt.Dimension(800, 550));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 204));
         jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 204));
         jLabel4.setText("Prácticas de la herramienta");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 556, -1));
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/back.png"))); // NOI18N
@@ -88,7 +90,6 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
                 btnRegresarMouseClicked(evt);
             }
         });
-        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         tblPracticas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,7 +106,30 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblPracticas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 688, 341));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnRegresar)
+                .addGap(69, 69, 69)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegresar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4)))
+                .addGap(72, 72, 72)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -127,7 +151,8 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
         int column = tblPracticas.getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY() / tblPracticas.getRowHeight();
         if (row < tblPracticas.getRowCount() && row >= 0 && column < tblPracticas.getColumnCount() && column >= 0) {
-            id = (int) tblPracticas.getValueAt(row, 0);
+            int aux = tblPracticas.getSelectedRow();
+            id = lista.get(aux).getCodigopdf();
             Object value = tblPracticas.getValueAt(row, column);
             if (value instanceof JButton) {
                 ((JButton) value).doClick();
@@ -139,8 +164,9 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
                     DATPracticas pd = new DATPracticas();
                     pd.ejecutar_archivoPDF(id);
                     try {
-                        Desktop.getDesktop().open(new File("Practica.pdf"));
+                        Desktop.getDesktop().open(new File("Recursos\\Practica.pdf"));
                     } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(null,"Problemas al Encontrar el Archivo");
                     }
                 }
 

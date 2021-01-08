@@ -37,8 +37,11 @@ public class DATFuncionalidades {
             while (rs.next()) {
                 PDF vo = new PDF();
                 vo.setCodigopdf(rs.getInt(1));
-                vo.setNombrepdf(rs.getString(2));
-                vo.setArchivopdf(rs.getBytes(3));
+                vo.setFecha(rs.getDate(2));
+                vo.setNombrepdf(rs.getString(3));
+                vo.setArchivopdf(rs.getBytes(4));
+                vo.setDescripcion(rs.getString(5));
+                vo.setNombreHerramienta(rs.getString(6));
                 pdf = vo;
             }
         } catch (SQLException ex) {
@@ -75,7 +78,7 @@ public class DATFuncionalidades {
             byte[] datosPDF = new byte[tamanoInput];
             bos.read(datosPDF, 0, tamanoInput);
 
-            OutputStream out = new FileOutputStream("Funcionalidades.pdf");
+            OutputStream out = new FileOutputStream("Recursos\\Funcionalidades.pdf");
             out.write(datosPDF);
 
             //abrir archivo

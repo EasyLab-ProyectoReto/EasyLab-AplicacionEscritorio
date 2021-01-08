@@ -35,8 +35,11 @@ public class DATPracticas {
             while (rs.next()) {
                 PDF pra = new PDF();
                 pra.setCodigopdf(rs.getInt(1));
-                pra.setNombrepdf(rs.getString(2));
-                pra.setArchivopdf(rs.getBytes(3));
+                pra.setFecha(rs.getDate(2));
+                pra.setNombrepdf(rs.getString(3));
+                pra.setArchivopdf(rs.getBytes(4));
+                pra.setDescripcion(rs.getString(5));
+                pra.setNombreHerramienta(rs.getString(6));
                 list.add(pra);
             }
         } catch (SQLException ex) {
@@ -73,7 +76,7 @@ public class DATPracticas {
             byte[] datosPDF = new byte[tamanoInput];
             bos.read(datosPDF, 0, tamanoInput);
 
-            OutputStream out = new FileOutputStream("Practica.pdf");
+            OutputStream out = new FileOutputStream("Recursos\\Practica.pdf");
             out.write(datosPDF);
 
             //abrir archivo
