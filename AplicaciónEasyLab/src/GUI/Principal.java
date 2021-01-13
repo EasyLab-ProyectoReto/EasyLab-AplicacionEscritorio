@@ -33,7 +33,7 @@ public class Principal extends javax.swing.JFrame {
         this.setContentPane(fondo);
         initComponents();
         this.setIconImage(new ImageIcon(getClass().getResource("/IMG/help.png")).getImage());
-        this.setSize(new Dimension(1300, 800));
+        //this.setSize(new Dimension(1300, 800));
         //this.setMinimumSize(new Dimension(200, 200));
         setLocationRelativeTo(null);
         btnFuncionalidades.setBackground(Color.CYAN);
@@ -64,6 +64,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem = new javax.swing.JMenuItem();
@@ -71,9 +72,9 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 204));
-        jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 204));
-        jLabel4.setText("Asesoramiento Laboratorio Virtual ");
+        jLabel4.setText("Herramienta WBS Schedule Pro");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dep.jpg"))); // NOI18N
         jLabel2.setText(" ");
@@ -122,6 +123,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(233, 233, 233));
         jLabel7.setText("que posee la herramienta");
 
+        jLabel8.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel8.setFont(new java.awt.Font("Rockwell Condensed", 1, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 204));
+        jLabel8.setText("EasyLab");
+
         jMenu1.setText("Opciones");
 
         jMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
@@ -148,9 +154,6 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(190, 190, 190)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(284, 284, 284)
@@ -161,20 +164,31 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(180, 180, 180)
                 .addComponent(btnPracticas, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabel7))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel5)
                 .addGap(256, 256, 256)
                 .addComponent(jLabel6))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(jLabel7))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(428, 428, 428))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(451, 451, 451))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(132, 132, 132)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -297,6 +311,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem;
