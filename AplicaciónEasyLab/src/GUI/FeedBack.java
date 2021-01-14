@@ -39,9 +39,7 @@ public class FeedBack extends javax.swing.JFrame {
         btnCalificar.setBackground(Color.CYAN);
         
         this.setResizable(false);
-        //this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
         setTitle("EasyLab - Asesoramiento ");
-        //this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE); 
     }
      public void imagenDesktop(){
          
