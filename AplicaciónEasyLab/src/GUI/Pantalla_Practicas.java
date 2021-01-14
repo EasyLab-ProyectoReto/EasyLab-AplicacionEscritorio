@@ -76,6 +76,7 @@ public class Pantalla_Practicas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setMinimumSize(new java.awt.Dimension(800, 550));
+        setUndecorated(true);
         setResizable(false);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 204));

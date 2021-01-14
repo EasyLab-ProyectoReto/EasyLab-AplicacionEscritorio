@@ -33,19 +33,19 @@ public class Principal extends javax.swing.JFrame {
         this.setContentPane(fondo);
         initComponents();
         this.setIconImage(new ImageIcon(getClass().getResource("/IMG/help.png")).getImage());
-        //this.setSize(new Dimension(1300, 800));
+        this.setSize(new Dimension(1200, 800));
         //this.setMinimumSize(new Dimension(200, 200));
         setLocationRelativeTo(null);
         btnFuncionalidades.setBackground(Color.CYAN);
         btnPracticas.setBackground(Color.CYAN);
         this.setResizable(false);
-        //this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE);
+        
         setTitle("EasyLab - Asesoramiento ");
-        //this.setDefaultCloseOperation(this.DO_NOTHING_ON_CLOSE); 
+
     }
      public void imagenDesktop(){
          
-     }
+     }     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +70,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 204));
         jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 1, 18)); // NOI18N
@@ -129,8 +131,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel8.setText("EasyLab");
 
         jMenu1.setText("Opciones");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
         jMenuItem.setText("Salir");
         jMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -146,6 +150,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem);
 
         jMenuBar1.add(jMenu1);
+        jMenu1.getAccessibleContext().setAccessibleDescription("");
 
         setJMenuBar(jMenuBar1);
 
@@ -154,51 +159,48 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(542, 542, 542)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(511, 511, 511)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(190, 190, 190)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(284, 284, 284)
+                .addGap(264, 264, 264)
                 .addComponent(jLabel1))
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(btnFuncionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180)
+                .addGap(160, 160, 160)
                 .addComponent(btnPracticas, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(jLabel7))
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel5)
                 .addGap(256, 256, 256)
                 .addComponent(jLabel6))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(428, 428, 428))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(451, 451, 451))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabel7))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel4)
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(15, 15, 15)
                         .addComponent(jLabel1)))
-                .addGap(19, 19, 19)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnFuncionalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPracticas, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
@@ -210,15 +212,24 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItemMouseClicked
-        // TODO add your handling code here:
-        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
-        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+  
     }//GEN-LAST:event_jMenuItemMouseClicked
 
     private void jMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActionPerformed
-        // TODO add your handling code here:
-        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
-        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+        //// TODO add your handling code here:
+        //WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        //Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
+        FeedBack fbck = new FeedBack();
+        Principal pl = new Principal();
+        int valor = JOptionPane.showConfirmDialog(this, "¿Desea calificar el aplicativo antes de salir?", "Mensaje", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (valor == JOptionPane.YES_OPTION) {
+           fbck.setVisible(true);
+           pl.dispose();
+        }
+        else{
+            System.exit(0);
+            
+        }
     }//GEN-LAST:event_jMenuItemActionPerformed
 
     private void btnPracticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPracticasMouseClicked
