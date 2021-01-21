@@ -25,6 +25,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.spi.DirStateFactory;
@@ -348,7 +349,7 @@ public class FeedBack extends javax.swing.JFrame {
                         .addComponent(jLabel10))))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 1080, 420));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 1080, 470));
 
         jMenu1.setText("Opciones");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -404,23 +405,24 @@ public class FeedBack extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCalificarMouseExited
 
     private void btnCalificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalificarActionPerformed
+        ArrayList<formulario> formu = new ArrayList();
+        String pregunta;
+        int respuesta;
         
-        
-        
-       String pregunta;
-    int respuesta;
     
      if(this.ac1.isSelected()){
           pregunta ="Pregunta 1";
           respuesta = 1;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+          formu.add(objFormulario);
+
          
      }else if(this.dc1.isSelected()){
               pregunta ="Pregunta 1";
           respuesta = 0;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+          formu.add(objFormulario);
+
 
      }
      
@@ -428,13 +430,15 @@ public class FeedBack extends javax.swing.JFrame {
           pregunta ="Pregunta 2";
           respuesta = 1;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+           formu.add(objFormulario);
+
   
      }else if(this.dc2.isSelected()){
               pregunta ="Pregunta 2";
           respuesta = 0;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+           formu.add(objFormulario);
+
     
      }else{
      JOptionPane.showMessageDialog(null, "Seleccione una opcion de la pregunta 2");
@@ -444,12 +448,14 @@ public class FeedBack extends javax.swing.JFrame {
           pregunta ="Pregunta 3";
           respuesta = 1;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+           formu.add(objFormulario);
+
      }else if(this.dc3.isSelected()){
               pregunta ="Pregunta 3";
           respuesta = 0;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+           formu.add(objFormulario);
+
      }else{
      JOptionPane.showMessageDialog(null, "Seleccione una opcion de la pregunta 3");
      }
@@ -458,12 +464,14 @@ public class FeedBack extends javax.swing.JFrame {
           pregunta ="Pregunta 4";
           respuesta = 1;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+           formu.add(objFormulario);
+
      }else if(this.dc4.isSelected()){
               pregunta ="Pregunta 4";
           respuesta = 0;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+          formu.add(objFormulario);
+
      }else{
      JOptionPane.showMessageDialog(null, "Seleccione una opcion de la pregunta 4");
      }
@@ -472,19 +480,31 @@ public class FeedBack extends javax.swing.JFrame {
           pregunta ="Pregunta 5";
           respuesta = 1;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+          formu.add(objFormulario);
+
      }else if(this.dc5.isSelected()){
               pregunta ="Pregunta 5";
           respuesta = 0;
           formulario objFormulario = new formulario(pregunta,respuesta);
-          objDATFormulario.InsertariRespuestaBD(objFormulario);
+          formu.add(objFormulario);
+
      }else{
      JOptionPane.showMessageDialog(null, "Seleccione una opción de la pregunta 5");
      }
      
-     JOptionPane.showMessageDialog(null, "Datos guardados correctamente ");
-     
-     this.dispose();
+     int descision = JOptionPane.showConfirmDialog(null, "Desea enviar sin seleccionar algunos campos ?");
+        if (descision == JOptionPane.YES_OPTION) {
+            for (int i = 0; i < formu.size(); i++) {
+                objDATFormulario.InsertariRespuestaBD(formu.get(i));
+            }
+            JOptionPane.showMessageDialog(null, "Datos guardados correctamente... Gracias");
+            formu.clear();
+            this.dispose();
+
+        } else if (descision == JOptionPane.NO_OPTION) {
+            formu.clear();
+            
+        }
         
     }//GEN-LAST:event_btnCalificarActionPerformed
 
