@@ -34,14 +34,17 @@ public class Conexion {
     public Connection conectarBD(){
         return con;
     }
-    public void desconectarBD(){
+     public void CerrarConexion() throws SQLException{
+       con.close();
+    }
+    /*public void desconectarBD(){
         con = null;
         if (con==null) {
             System.out.println("Conexión Cerrada...");
           //JOptionPane.showMessageDialog(null, "Conexion cerrada...");
 
         }
-    }
+    }*/
     /*static String bd = "easylabproyecto";
     static String login = "root";
     static String password = "";

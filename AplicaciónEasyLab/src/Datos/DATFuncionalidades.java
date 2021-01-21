@@ -52,7 +52,7 @@ public class DATFuncionalidades {
             try {
                 ps.close();
                 rs.close();
-                conectar.desconectarBD();
+                 conectar.CerrarConexion();
                 System.out.println("Se Desconecto");
             } catch (Exception ex) {
             }
@@ -86,7 +86,7 @@ public class DATFuncionalidades {
             bos.close();
             ps.close();
             rs.close();
-            cn.desconectarBD();
+            cn.CerrarConexion();
 
         } catch (IOException | NumberFormatException | SQLException ex) {
             System.out.println("Error al abrir archivo PDF " + ex.getMessage());
