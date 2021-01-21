@@ -230,6 +230,7 @@ public class Principal extends javax.swing.JFrame {
             System.exit(0);
             
         }
+        this.dispose();
     }//GEN-LAST:event_jMenuItemActionPerformed
 
     private void btnPracticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPracticasMouseClicked

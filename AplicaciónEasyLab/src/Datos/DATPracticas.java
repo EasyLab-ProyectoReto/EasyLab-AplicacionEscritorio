@@ -50,7 +50,7 @@ public class DATPracticas {
             try {
                 ps.close();
                 rs.close();
-                conectar.desconectarBD();
+                 conectar.CerrarConexion();
             } catch (Exception ex) {
             }
         }
@@ -84,7 +84,7 @@ public class DATPracticas {
             bos.close();
             ps.close();
             rs.close();
-            cn.desconectarBD();
+            cn.CerrarConexion();
 
         } catch (IOException | NumberFormatException | SQLException ex) {
             System.out.println("Error al abrir archivo PDF " + ex.getMessage());
